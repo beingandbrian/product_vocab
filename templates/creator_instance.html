@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Creator Instance</h1>
+
+<ul>
+<h5><li>{{ creator.id }}</li></h5>
+<h2><li>{{ creator.get_creator_name() }}</li></h2>
+<h2><li>{{ creator.email }}</li></h2>
+<h2><li>{{ creator.password}}</li></h2>
+</ul>
+
+
+{% endblock %}

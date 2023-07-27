@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Word List</h1>
+<div class="container">
+<ul>
+    {% for word in banana_words %}
+    <li>
+        <div>
+            <a class="word_link" href="/word_instance/{{ word.word_name }}"><h2>{{ word.word_name }}</h2></a>
+            <div style="display:inline-block">
+                <a class="hidden_link"  href="">Update</a> 
+                <a class="hidden_link" href="/word_list/delete_word/{{word.id}}">Delete</a>
+            </div>
+            <br>
+            by
+            <h4>{{ word.creator.get_creator_name() }}</h4>
+        </div>
+        <p>{{ word.definition }}</p> 
+    </li>
+    {% endfor %}
+</ul>
+</div>
+{% endblock %}

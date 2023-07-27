@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="form_container">
+
+<h1>Create Creator or Update Creator</h1>
+
+{% if creator %}
+{% set username = creator.username %}
+{% set first_name = creator.first_name %}
+{% set last_name = creator.last_name %}
+{% set email = creator.email %}
+{% else %}
+{% set username = "" %}
+{% set first_name = "" %}
+{% set last_name = "" %}
+{% set email = "" %}
+{% endif %}
+
+<div class="alert">
+    {% for message in get_flashed_messages() %}
+        <p>Error: {{message}}!</p>
+    {% endfor %}
+</div>
+
+<form action="" method="POST">
+    <label for="username">Username</label><br>
+    <input type="text" value="{{username}}" id="username" name="sex_username" placeholder="enter a username"><br>
+    <label for="first_name">First Name</label><br>
+    <input type="text" value="{{first_name}}" id="first_name" name="sex_first_name" placeholder="enter a first_name"><br>
+    <label for="last_name">Last Name</label><br>
+    <input type="text" value="{{last_name}}" id="last_name" name="apple_last_name"><br>
+    <label for="email">Email</label><br>
+    <input type="text" value="{{email}}" id="email" name="apple_email"><br>
+    <label for="password">Password</label><br>
+    <input type="password" id="password" name="apple_password"><br>
+    <input type="submit" value="Create" name="submit"> 
+    <input type="submit" value="Update" name="submit"> 
+</form>
+</div>
+{% endblock %}

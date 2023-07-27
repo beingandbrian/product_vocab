@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+<!-- <ul> -->
+<div id="words">
+    {% for word in words %}
+    <!-- <li> -->
+        <div id="a_word">
+            <h2><a href="/create_or_update_word/{{word.id}}">{{word.word_name}}</a></h2>
+            <p>{{word.definition}}</p> 
+            <a href="/create_or_update_creator/{{ word.creator_id }}">by {{ word.creator.get_creator_name() }}</a>
+        </div> 
+    <!-- </li> -->
+    {% endfor %}
+<!-- </ul> -->
+</div>
+{% endblock %}

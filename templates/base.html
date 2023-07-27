@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="../static/base.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:bold' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+
+    {% if title %}
+        <title>add word | {{ title }}</title>
+    {% else %}
+        <title>add word</title>
+    {% endif %}
+
+    {% block header %}
+    {% endblock %}
+</head>
+<body>
+    <div id="header">
+        <h1 id="blog_title">add words</h1>
+        {% include "navbar.html" %}
+    </div>
+
+    <div id="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <div id="footer">
+        <img src="{{url_for('static', filename='DieseinerData_designedby_black.png')}}" align="left" width=100px height=50px/>
+        <p>&copy 2022 design by Dieseinerdata</p>
+    </div>
+</body>
+</html>

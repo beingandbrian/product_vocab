@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="form_container">
+<h1> Create or Update Word </h1> 
+
+{% if word %}
+{% set word_name = word.word_name %}
+{% set definition = word.definition %}
+{% set example = word.example %}
+{% set creator_first_name = word.creator.first_name %}
+{% else %}
+{% set word_name = "" %}
+{% set definition = "" %}
+{% set example = "" %}
+{% set creator_first_name = "" %}
+{% endif %}
+
+<form action="" method="POST">
+    <label for="word_name">Word:</label><br>
+    <input type="text" value="{{word_name}}"  id="word_name" name="apple_word_name" placeholder="enter a word here"><br>
+    <label for="definition">Definition:</label><br>
+    <input type="text" value="{{definition}}" id="definition" name="definition" placeholder="enter a definition here"><br>
+    <label for="example">Example:</label><br>
+    <input type="text" value="{{example}}" id="example" name="example" placeholder="enter an example here"><br>
+    <div id="creator_and_dropdown">
+    <label for="creator">Creator:</label>
+    <select name="creator" method="POST" action="">
+        {% for creator in html_creator_list %}            
+            {% if creator_first_name==creator %}
+                <option selected value="{{ creator }}">{{ creator }}</option>
+            {% else %}
+                <option value="{{ creator }}">{{ creator }}</option>
+            {% endif %} 
+        {% endfor %}
+    </select>
+    </div>
+    <input type="submit" value="Submit"><br>
+</form>
+
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Creator List</h1>
+
+<ul>
+{% for creator in html_creators_list %}
+    <a href="/creator_instance/{{creator.id}}">
+    <h5><li>{{ creator.id }}</li></h5>
+    </a>
+    <h5><li>{{ creator.username }}</li></h5>
+    <h2><li>{{ creator.get_creator_name() }}</li></h2>
+    <h2><li>{{ creator.email }}</li></h2>
+    <h2><li>{{ creator.password}}</li></h2>
+{% endfor %}
+</ul>
+
+{% endblock %}
